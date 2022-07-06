@@ -7,10 +7,7 @@ namespace BankingConsoleApp
 {
     class Program
     {
-        // internal static List<Customer> customers = new List<Customer>();
-
         internal static Dictionary<int, Customer> customers = new Dictionary<int, Customer>();
-        internal static List<Transactions> transactions = new List<Transactions>();
         internal static int customerId = 0;
         internal static int accountNumberSeed = 1234567890;
 
@@ -332,12 +329,12 @@ namespace BankingConsoleApp
             if (customers.ContainsKey(accountNumber)&&customers[accountNumber].password==password)
             {
                 Console.WriteLine("Your previous tranactions are listed below");
-                Console.WriteLine("Date                Amount Transaction type");
+                Console.WriteLine("Date                 Transaction type Amount");
                 foreach (Transactions transaction in customers[accountNumber].AccountDetails.Transactions)
                 {
                     Console.Write(transaction.DateOfTransaction + " ");
-                    Console.Write(transaction.Amount + " ");
-                    Console.WriteLine(transaction.TransactionType);
+                    Console.Write(transaction.TransactionType + "           ");
+                    Console.WriteLine(transaction.Amount);
                 }
                 return;
             }
