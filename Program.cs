@@ -329,11 +329,18 @@ namespace BankingConsoleApp
             if (customers.ContainsKey(accountNumber)&&customers[accountNumber].password==password)
             {
                 Console.WriteLine("Your previous tranactions are listed below");
-                Console.WriteLine("Date                Transaction type Amount");
+                Console.WriteLine("Date                 Transaction type Amount");
                 foreach (Transactions transaction in customers[accountNumber].AccountDetails.Transactions)
                 {
                     Console.Write(transaction.DateOfTransaction + " ");
-                    Console.Write(transaction.TransactionType + "            ");
+                    if (transaction.TransactionType==TransactionType.Debit)
+                    {
+                        Console.Write(transaction.TransactionType + "            ");
+                    }
+                    else
+                    {
+                        Console.Write(transaction.TransactionType + "           ");
+                    }
                     Console.WriteLine(transaction.Amount);
                 }
                 return;
