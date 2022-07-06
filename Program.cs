@@ -290,7 +290,7 @@ namespace BankingConsoleApp
                     }
                 }
             }
-            else if (!customers.ContainsKey(senderAccountNumber)||customers[senderAccountNumber].password==password) 
+            else if (!customers.ContainsKey(senderAccountNumber)||customers[senderAccountNumber].password!=password) 
             {
                 Console.Write("===>Your account number or password is incorrect. If you will like to try again, enter yes. If not, press any other key to cancel the transaction: ");
                 string answer = Console.ReadLine().ToLower();
